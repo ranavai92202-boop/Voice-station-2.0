@@ -1,66 +1,59 @@
 module.exports.config = {
   name: "prefix",
-  version: "1.0.0", 
+  version: "1.0.0",
   hasPermssion: 0,
-  credits: "Shahadat SAHU",
-  description: "Display the bot's prefix and owner info",
-  commandCategory: "Information",
+  credits: "𝐂𝐘𝐁𝐄𝐑 ☢️_𖣘 -𝐁𝐎𝐓 ⚠️ 𝑻𝑬𝑨𝑴_ ☢️",
+  description: "given prefix detail",
+  commandCategory: "Dành cho Admin",
   usages: "",
-  cooldowns: 5
+  cooldowns: 5,
 };
 
 module.exports.handleEvent = async ({ event, api, Threads }) => {
   var { threadID, messageID, body } = event;
-  if (!body) return;
 
-  var dataThread = await Threads.getData(threadID);
-  var data = dataThread.data || {};
+  if ((this.config.credits) != "𝐂𝐘𝐁𝐄𝐑 ☢️_𖣘 -𝐁𝐎𝐓 ⚠️ 𝑻𝑬𝑨𝑴_ ☢️") {
+    return api.sendMessage("Again change credit to —͟͟͞͞𝐕𝐨𝐢𝐜𝐞 𝐒𝐭𝐚𝐭𝐢𝐨𝐧 𝐁𝐨𝐭", threadID, messageID);
+  }
+
+  function out(data) {
+    api.sendMessage(data, threadID, messageID);
+  }
+
+  var dataThread = (await Threads.getData(threadID));
+  var data = dataThread.data;
   const threadSetting = global.data.threadData.get(parseInt(threadID)) || {};
-  const prefix = threadSetting.PREFIX || global.config.PREFIX;
-  const groupName = dataThread.threadInfo?.threadName || "Unnamed Group";
-
-  const triggerWords = [
-    "prefix", "mprefix", "mpre", "bot prefix", "what is the prefix", "bot name",
-    "how to use bot", "bot not working", "bot is offline", "prefx", "prfix",
-    "perfix", "bot not talking", "where is bot", "bot dead", "bots dead",
-    "dấu lệnh", "daulenh", "what prefix", "freefix", "what is bot", "what prefix bot",
-    "how use bot", "where are the bots", "where prefix"
+  var arr = [
+    "mpre", "mprefix", "prefix", "dấu lệnh", "prefix của bot là gì",
+    "daulenh", "duong", "what prefix", "freefix", "what is the prefix", "bot dead",
+    "bots dead", "where prefix", "what is bot", "what prefix bot", "how to use bot",
+    "how use bot", "where are the bots", "bot not working", "bot is offline", 
+    "prefx", "prfix", "prifx", "perfix", "bot not talking", "where is bot"
   ];
 
-  let lowerBody = body.toLowerCase();
-  if (triggerWords.includes(lowerBody)) {
-    return api.sendMessage(
-`🌟━━━━━━━━━━━━━━━━━🌟
-　　　『 𝐏𝐑𝐄𝐅𝐈𝐗 𝐈𝐍𝐅𝐎𝐑𝐌𝐀𝐓𝐈𝐎𝐍 』
-🌟━━━━━━━━━━━━━━━━━🌟
-『 𝐁𝐎𝐓 𝐈𝐍𝐅𝐎 』
-
-➤ 𝗕𝗼𝘁 𝗽𝗿𝗲𝗳𝗶𝘅 : [ ${prefix} ]
-➤ 𝗕𝗼𝘁 𝗡𝗮𝗺𝗲   : ─꯭─⃝‌‌𝐒𝐡𝐚𝐡𝐚𝐝𝐚𝐭 𝐂𝐡𝐚𝐭 𝐁𝐨𝐓
-➤ 𝗕𝗼𝘁 𝗔𝗱𝗺𝗶𝗻 : 𝐒𝐇𝐀𝐇𝐀𝐃𝐀𝐓
-
-『 𝐁𝐎𝐗 𝐈𝐍𝐅𝐎 』
-
-➤ 𝗕𝗼𝘅 𝗣𝗿𝗲𝗳𝗶𝘅 : ${prefix}
-➤ 𝗕𝗼𝘅 𝗡𝗮𝗺𝗲   : ${groupName}
-➤ 𝗕𝗼𝘅 𝗧𝗜𝗗     : ${threadID}
-
-『 𝐎𝐖𝐍𝐄𝐑 𝐈𝐍𝐅𝐎 』
-
-➤ 𝗢𝘄𝗻𝗲𝗿 𝗡𝗮𝗺𝗲 : 𝐒𝐇𝐀𝐇𝐀𝐃𝐀𝐓 𝐒𝐀𝐇𝐔
-➤ 𝗙𝗮𝗰𝗲𝗯𝗼𝗼𝗸    : www.facebook.com/100001039692046
-➤ 𝗠𝗲𝘀𝘀𝗲𝗻𝗴𝗲𝗿  : m.me/100001039692046
-➤ 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽    : https://wa.me/+8801882333052
-
-🌟━━━━━━━━━━━━━━━━━🌟
-　　　　𝗧𝗵𝗮𝗻𝗸 𝗬𝗼𝘂 𝗙𝗼𝗿 𝗨𝘀𝗶𝗻𝗴!
-🌟━━━━━━━━━━━━━━━━━🌟`,
-      threadID,
-      null
-    );
-  }
+  arr.forEach(i => {
+    let str = i[0].toUpperCase() + i.slice(1);
+    if (body === i.toUpperCase() || body === i || str === body) {
+      const prefix = threadSetting.PREFIX || global.config.PREFIX;
+      return out(
+        `✦━━━━━━━━━━━━━━━━━✦\n` +
+        `🌀 Prefix: ⇉ [ ${prefix} ]\n` +
+        `✦━━━━━━━━━━━━━━━━━✦\n` +
+        `👑 Owner: 𝐅𝐚𝐫𝐡𝐚𝐝 𝐔𝐝𝐝𝐢𝐧\n` +
+        `✦━━━━━━━━━━━━━━━━━✦\n` +
+        `𝗕𝗼𝘁 𝗡𝗮𝗺𝗲: 𝐕𝐨𝐢𝐜𝐞 𝐒𝐭𝐚𝐭𝐢𝐨𝐧 𝐁𝐨𝐭\n` +
+        `✦━━━━━━━━━━━━━━━━━✦\n` +
+        `🌐 Facebook ID: www.facebook.com/100041336504284\n` +
+        `✦━━━━━━━━━━━━━━━━━✦\n` +
+        `📞 WhatsApp: https://wa.me/01848019304\n` +
+        `✦━━━━━━━━━━━━━━━━━✦\n` +
+        `Messenger: m.me/100041336504284\n` +
+        `✦━━━━━━━━━━━━━━━━━✦`
+      );
+    }
+  });
 };
 
 module.exports.run = async ({ event, api }) => {
-  return api.sendMessage("Type 'prefix' or similar to get the bot info.", event.threadID);
+  return api.sendMessage("error", event.threadID);
 };
