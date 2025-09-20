@@ -1,19 +1,18 @@
----------
+𝐅𝐚𝐫𝐡𝐚𝐝 𝐔𝐝𝐝𝐢𝐧
 
-### —͟͟͞͞𝐒𝐇𝐀𝐇𝐀𝐃𝐀𝐓 𝐂𝐇𝐀𝐓 𝐁𝐎𝐓  𝐅𝐎𝐑𝐊  🌺
-
+### —͟͟͞͞𝐕𝐨𝐢𝐜𝐞 𝐒𝐭𝐚𝐭𝐢𝐨𝐧 𝐁𝐨𝐭
 ❖ **`A Messenger Multi Device Bot To Take Your Messenger To Another Level!`** 
 
 
 
 Assalamualaikum Everyone!  
-**Welcome to My SHAHADAT CHAT BOT Fork!**
+**Welcome to My —͟͟͞͞𝐕𝐨𝐢𝐜𝐞 𝐒𝐭𝐚𝐭𝐢𝐨𝐧 𝐁𝐨𝐭 Fork!**
 
-![Box-shaped Image](https://i.imgur.com/u7VnPzH.png)
+![Box-shaped Image](https://i.imgur.com/VLkRDvN.jpeg)
 
 <p align="center" style="animation: glow 2s infinite alternate; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-  <span style="font-size: 24px; font-weight: bold;">SHAHADAT CHAT BOT</span><br>
-  <span> Develop By SHAHADAT SAHU</span>
+  <span style="font-size: 24px; font-weight: bold;">—͟͟͞͞𝐕𝐨𝐢𝐜𝐞 𝐒𝐭𝐚𝐭𝐢𝐨𝐧 𝐁𝐨𝐭</span><br>
+  <span> Develop By —͟͟͞͞𝐕𝐨𝐢𝐜𝐞 𝐒𝐭𝐚𝐭𝐢𝐨𝐧 𝐁𝐨𝐭</span>
 </p>
 
 
@@ -136,15 +135,15 @@ ___
 
 ## 👨‍💻 **ABOUT THE DEVELOPER**  
   
-**Name:** **`SHAHADAT ISLAM`**  
-**Nice Name:** **`SA HU`**  
+**Name:** **𝐅𝐚𝐫𝐡𝐚𝐝 𝐔𝐝𝐝𝐢𝐧`**  
+**Nice Name:** **` 𝐅𝐚𝐫𝐡𝐚𝐝**  
 **Profession:** **`STUDENT & CHATBOT DEVELOPER`**  
-**Location:** **`KHAGRACHARI, BANGLADESH`**  
+**Location:** **`Bandarban,BANGLADESH`**  
 
 ### 📞 **CONTACT INFORMATION**  
-- **WhatsApp:** **[01882 333052](https://wa.me/+8801882333052)**  
-- **Facebook:** **[Facebook ID](https://facebook.com/100001039692046)**  
-- **Messenger:** **[Message Me](https://m.me/100001039692046)**  
+- **WhatsApp:** **[01848019304](https://wa.me/+8801848019304)**  
+- **Facebook:** **[Facebook ID](https://facebook.com/100041336504284)**  
+- **Messenger:** **[Message](https://m.me/100041336504284)**  
 
 ### 🚀 **DEVELOPMENT APPROACH**  
 - 💻 **Copy-paste techniques with customizations**  
@@ -165,10 +164,10 @@ If you need any help, you can contact the admin.
 Please do not disturb the admin unless you have a special need. Thank you! 
 
 <p align="center">
-  <a href="https://wa.me/+8801882333052?text=Assalamualaikum%20Admin%20SHAHADAT%20SAHU%20Need%20Help%20Please%20Brother%20🫶">
+  <a href="https://wa.me/+8801848019304?text=Assalamualaikum%20Admin%20Farhad%20Uddin%20Need%20Help%20Please%20Brother%20🫶">
     <img alt="WhatsApp" src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white">
   </a>
-  <a href="https://m.me/100001039692046">
+  <a href="https://m.me/100041336504284">
     <img alt="Messenger" src="https://img.shields.io/badge/Messenger-00B2FF?style=for-the-badge&logo=messenger&logoColor=white">
   </a>
 </p>
@@ -177,15 +176,15 @@ Please do not disturb the admin unless you have a special need. Thank you!
 
 ## ✨🌟 Special Thanks 🌟✨
 
-- 🚀 **Cyber Bot Team**  
-- 🧙‍♂️ **Ullash (Owner Cyber Bot Team)**
-- 🛡️ **Sujon (Admin Cyber Bot Team)**
-- 🎓 **Grandpa EJ (Owner Grandpa Academy)** 
+- 🚀 **𝐅𝐚𝐫𝐡𝐚𝐝(Bot owner)**  
+- 🧙‍♂️ **Mahide(Bot admin)**
+- 🛡️ **RANA ( Bot Admin )**
+- 🎓 **Farhat (Bot Admin )** 
 
 ---
 
-💖 **Thank You For Choosing 𝗦𝗵𝗮𝗵𝗮𝗱𝗮𝘁 𝗖𝗵𝗮𝘁 𝗕𝗼𝘁!**  
-🗓️ *Release Date:* `11/08/2025 at 02:00`  
+💖 **Thank You For Choosing —͟͟͞͞𝐕𝐨𝐢𝐜𝐞 𝐒𝐭𝐚𝐭𝐢𝐨𝐧 𝐁𝐨𝐭!**  
+🗓️ *Release Date:* `10/08/2025 at 11:00`  
 ⭐ **Please don't forget to give a star after forking! It really helps!**
 
 ---
@@ -195,11 +194,12 @@ Please do not disturb the admin unless you have a special need. Thank you!
 </p>
 
 <p align="center">
-  <a href="https://github.com/shahadat-sahu"><img src="https://img.icons8.com/fluency/48/000000/github.png" alt="GitHub"></a>
-  <a href="https://wa.me/+8801882333052"><img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp"></a>
-  <a href="https://facebook.com/100001039692046"><img src="https://img.icons8.com/fluency/48/000000/facebook.png" alt="Facebook"></a>
-  <a href="https://t.me/+8EtzLXVG-REwYTM1"><img src="https://img.icons8.com/color/48/000000/telegram-app.png" alt="Telegram"></a>
-  <a href="https://youtube.com/@cyberbotcommunity"><img src="https://img.icons8.com/color/48/000000/youtube-play.png" alt="YouTube"></a>
+  <a href="https://github.com/ranavai92202-boop"><img src="https://img.icons8.com/fluency/48/000000/github.png" alt="GitHub"></a>
+  <a href="https://wa.me/+88018848019304"><img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp"></a>
+  <a href="https://facebook.com/100041336504284"><img src="https://img.icons8.com/fluency/48/000000/facebook.png" alt="Facebook"></a>
+  <a href="https://t.me/@Farhad_vai2_0"><img src="https://img.icons8.com/color/48/000000/telegram-app.png" alt="Telegram"></a>
+  <a href="https://youtube.com/@Farhad.vai2.0"><img src="https://img.icons8.com/color/48/000000/youtube-play.png" alt="YouTube"></a>
 </p>
 
-**I hope you enjoy my fork! Thank you for supporting the cyber chat bot community!**
+**I hope you enjoy my fork! Thank you for supporting the —͟͟͞͞𝐕𝐨𝐢𝐜𝐞 𝐒𝐭𝐚𝐭𝐢𝐨𝐧 𝐁𝐨𝐭 community!** 🌺# shahadatproject-
+#—͟͟͞͞𝐕𝐨𝐢𝐜𝐞 𝐒𝐭𝐚𝐭𝐢𝐨𝐧 𝐁𝐨𝐭
