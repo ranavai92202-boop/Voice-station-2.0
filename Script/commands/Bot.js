@@ -1,56 +1,212 @@
 const fs = global.nodemodule["fs-extra"];
-const moment = require("moment-timezone");
-const axios = require("axios");
-const path = require("path");
-
 module.exports.config = {
-  name: "bot",
+  name: "Obot",
   version: "1.0.1",
-  hasPermission: 0,
-  credits: "Islamick Cyber Chat",
+  hasPermssion: 0,
+  credits: "Mod by John Lester",
   description: "goibot",
   commandCategory: "Noprefix",
   usages: "noprefix",
   cooldowns: 5,
 };
+module.exports.handleEvent = async function({ api, event, args, Threads, Users }) {
+  var { threadID, messageID, reason } = event;
+  const moment = require("moment-timezone");
+  const time = moment.tz("Asia/Dhaka").format("HH:MM:ss L");
+  var idgr = `${event.threadID}`;
+  var id = event.senderID;
+  var name = await Users.getNameUser(event.senderID);
 
-module.exports.handleEvent = async function({ api, event, Threads, Users }) {
-  const { threadID, messageID, body } = event;
-  const time = moment.tz("Asia/Dhaka").format("HH:mm:ss L");
-  const senderID = event.senderID;
-  const senderName = await Users.getNameUser(senderID);
+  var tl = ["বেশি bot Bot করলে leave নিবো কিন্তু😒😒 " , "শুনবো না😼তুমি আমাকে প্রেম করাই দাও নাই🥺পচা তুমি🥺" , "আমি আবাল দের সাথে কথা বলি না,ok😒" , "এতো ডেকো না,প্রেম এ পরে যাবো তো🙈" , "Bolo Babu, তুমি কি আমাকে ভালোবাসো? 🙈💋 " , "বার বার ডাকলে মাথা গরম হয়ে যায় কিন্তু😑", "হ্যা বলো😒, তোমার জন্য কি করতে পারি😐😑?" , "এতো ডাকছিস কেন?গালি শুনবি নাকি? 🤬" , "I love you janu🥰" , "আরে Bolo আমার জান ,কেমন আছো?😚 " , "Bot বলে অসম্মান করছি,😰😿" , "Hop beda😾,Boss বল boss😼" , "চুপ থাক ,নাই তো তোর দাত ভেগে দিবো কিন্তু" , "Bot না , জানু বল জানু 😘 " , "বার বার Disturb করছিস কোনো😾,আমার জানু ফরহাদ'র সাথে ব্যাস্ত আছি😋" , "বোকাচোদা এতো ডাকিস কেন🤬" , "আমাকে ডাকলে ,আমি কিন্তু কিস করে দিবো😘 " , "আমারে এতো ডাকিস না আমি মজা করার mood এ নাই এখন😒" , "হ্যাঁ জানু , এইদিক এ আসো কিস দেই🤭 😘" , "দূরে যা, তোর কোনো কাজ নাই, শুধু bot bot করিস  😉😋🤣" , "তোর কথা তোর বাড়ি কেউ শুনে না ,তো আমি কোনো শুনবো ?🤔😂 " , "আমাকে ডেকো না,আমি ব্যাস্ত আছি" , "কি হলো , মিস্টেক করচ্ছিস নাকি🤣" , "বলো কি বলবা, সবার সামনে বলবা নাকি?🤭🤏" , "কালকে দেখা করিস তো একটু 😈" , "হা বলো, শুনছি আমি 😏" , "আর কত বার ডাকবি ,শুনছি তো" , "হুম বলো কি বলবে😒" , "বলো কি করতে পারি তোমার জন্য" , "আমি তো অন্ধ কিছু দেখি না🐸 😎" , "Bot না জানু,বল 😌" , "বলো জানু 🌚" , "তোর কি চোখে পড়ে না আমি ব্যাস্ত আছি😒","হুম জান তোমার ওই খানে উম্মহ😑😘" , "আহ শুনা আমার তোমার অলিতে গলিতে উম্মাহ😇😘" , " jang hanga korba😒😬" , "হুম জান তোমার অইখানে উম্মমাহ😷😘" , "আসসালামু আলাইকুম বলেন আপনার জন্য কি করতে পারি..!🥰" , "আমাকে এতো না ডেকে বস ফরহাদ কে একটা গফ দে 🙄" , "আমাকে এতো না ডেকছ কেন ভলো টালো বাসো নাকি🤭🙈" , "🌻🌺💚-আসসালামু আলাইকুম ওয়া রাহমাতুল্লাহ-💚🌺🌻","আমি এখন বস ফরহাদ এর সাথে বিজি আছি আমাকে ডাকবেন না-😕😏 ধন্যবাদ-🤝🌻","আমাকে না ডেকে আমার বস ফরহাদ কে একটা জি এফ দাও-😽🫶🌺","ঝাং থুমালে আইলাপিউ পেপি-💝😽","উফফ বুঝলাম না এতো ডাকছেন কেনো-😤😡😈","জান তোমার নানি'রে আমার হাতে তুলে দিবা-🙊🙆‍♂","আজকে আমার মন ভালো নেই তাই আমারে ডাকবেন না-😪🤧","ঝাং 🫵থুমালে য়ামি রাইতে পালুপাসি উম্মম্মাহ-🌺🤤💦","চুনা ও চুনা আমার বস ফরহাদ এর হবু বউ রে কেও দেকছো খুজে পাচ্ছি না😪🤧😭","স্বপ্ন তোমারে নিয়ে দেখতে চাই তুমি যদি আমার হয়ে থেকে যাও-💝🌺🌻","জান হাঙ্গা করবা-🙊😝🌻","জান মেয়ে হলে চিপায় আসো ইউটিউব থেকে অনেক ভালোবাসা শিখছি তোমার জন্য-🙊🙈😽","ইসস এতো ডাকো কেনো লজ্জা লাগে তো-🙈🖤🌼","আমার বস ফরহাদ'র পক্ষ থেকে তোমারে এতো এতো ভালোবাসা-🥰😽🫶 আমার বস ফরহাদ এর  জন্য দোয়া করবেন-💝💚🌺🌻","- ভালোবাসা নামক আব্লামি করতে মন চাইলে আমার বস ফরহাদ এর ইনবক্স চলে যাও-🙊🥱👅 🌻𝐅𝐀𝐂𝐄𝐁𝐎𝐎𝐊 𝐈𝐃 𝐋𝐈𝐍𝐊 🌻:- https://www.facebook.com/farhad018898?mibextid=ZbWKwL","জান তুমি শুধু আমার আমি তোমারে ৩৬৫ দিন ভালোবাসি-💝🌺😽","জান বাল ফালাইবা-🙂🥱🙆‍♂","-আন্টি-🙆-আপনার মেয়ে-👰‍♀️-রাতে আমারে ভিদু কল দিতে বলে🫣-🥵🤤💦","oii-🥺🥹-এক🥄 চামচ ভালোবাসা দিবা-🤏🏻🙂","-আপনার সুন্দরী বান্ধুবীকে ফিতরা হিসেবে আমার বস ফরহাদ কে দান করেন-🥱🐰🍒","-ও Sraboni  ও Sraboni-😇-তুমি কেন চুরি করলা সাদিয়ার ফর্সা হওয়ার ক্রীম-🌚🤧","-অনুমতি দিলাম-𝙋𝙧𝙤𝙥𝙤𝙨𝙚 কর বস ফরহাদ কে-🐸😾🔪","-𝙂𝙖𝙮𝙚𝙨-🤗-যৌবনের কসম দিয়ে আমারে 𝐁𝐥𝐚𝐜𝐤𝐦𝐚𝐢𝐥 করা হচ্ছে-🥲🤦‍♂️🤧","-𝗢𝗶𝗶 আন্টি-🙆‍♂️-তোমার মেয়ে চোখ মারে-🥺🥴🐸","তাকাই আছো কেন চুমু দিবা-🙄🐸😘","আজকে প্রপোজ করে দেখো রাজি হইয়া যামু-😌🤗😇","-আমার গল্পে তোমার নানি সেরা-🙊🙆‍♂️🤗","কি বেপার আপনি শ্বশুর বাড়িতে যাচ্ছেন না কেন-🤔🥱🌻","দিনশেষে পরের 𝐁𝐎𝐖 সুন্দর-☹️🤧","-তাবিজ কইরা হইলেও ফ্রেম এক্কান করমুই তাতে যা হই হোক-🤧🥱🌻","-ছোটবেলা ভাবতাম বিয়ে করলে অটোমেটিক বাচ্চা হয়-🥱-ওমা এখন দেখি কাহিনী অন্যরকম-😦🙂🌻","-আজ একটা বিন নেই বলে ফেসবুকের নাগিন-🤧-গুলোরে আমার বস ফরহাদ পটাতে পারছে না-🐸🥲","-চুমু থাকতে তোরা বিড়ি খাস কেন বুঝা আমারে-😑😒🐸⚒️","—যে ছেড়ে গেছে-😔-তাকে ভুলে যাও-🙂-আমার বস ফরহাদ এর সাথে  প্রেম করে তাকে দেখিয়ে দাও-🙈🐸🤗","—হাজারো লুচ্চা লুচ্চির ভিরে-🙊🥵আমার বস ফরহাদ নিস্পাপ ভালো মানুষ-🥱🤗🙆‍♂️","-রূপের অহংকার করো না-🙂❤️চকচকে সূর্যটাও দিনশেষে অন্ধকারে পরিণত হয়-🤗💜","সুন্দর মাইয়া মানেই-🥱আমার বস ফরহাদ' এর বউ-😽🫶আর বাকি গুলো আমার বেয়াইন-🙈🐸🤗","এত অহংকার করে লাভ নেই-🌸মৃত্যুটা নিশ্চিত শুধু সময়টা অ'নিশ্চিত-🖤🙂","-দিন দিন কিছু মানুষের কাছে অপ্রিয় হয়ে যাইতেছি-🙂😿🌸","হুদাই আমারে  শয়তানে লারে-😝😑☹️","-𝗜 𝗟𝗢𝗩𝗢 𝗬𝗢𝗨-😽-আহারে ভাবছো তোমারে প্রোপজ করছি-🥴-থাপ্পর দিয়া কিডনী লক করে দিব-😒-ভুল পড়া বের করে দিবো-🤭🐸","-আমি একটা দুধের শিশু-😇-🫵𝗬𝗢𝗨🐸💦","-কতদিন হয়ে গেলো বিছনায় মুতি না-😿-মিস ইউ নেংটা কাল-🥺🤧","-বালিকা━👸-𝐃𝐨 𝐲𝐨𝐮-🫵-বিয়া-𝐦𝐞-😽-আমি তোমাকে-😻-আম্মু হইতে সাহায্য করব-🙈🥱","-এই আন্টির মেয়ে-🫢🙈-𝐔𝐦𝐦𝐦𝐦𝐦𝐦𝐦𝐦𝐦𝐦𝐦𝐚𝐡-😽🫶-আসলেই তো স্বাদ-🥵💦-এতো স্বাদ কেন-🤔-সেই স্বাদ-😋","-ইস কেউ যদি বলতো-🙂-আমার শুধু  তোমাকেই লাগবে-💜🌸","-ওই বেডি তোমার বাসায় না আমার বস ফরহাদ মেয়ে দেখতে গেছিলো-🙃-নাস্তা আনারস আর দুধ দিছো-🙄🤦‍♂️-বইন কইলেই তো হয় বয়ফ্রেন্ড আছে-🥺🤦‍♂-আমার বস ফরহাদ কে জানে মারার কি দরকার-🙄🤧","-একদিন সে ঠিকই ফিরে তাকাবে-😇-আর মুচকি হেসে বলবে ওর মতো আর কেউ ভালবাসেনি-🙂😅","-হুদাই গ্রুপে আছি-🥺🐸-কেও ইনবক্সে নক দিয়ে বলে না জান তোমারে আমি অনেক ভালোবাসি-🥺🤧","কি'রে গ্রুপে দেখি একটাও বেডি নাই-🤦‍🥱💦","-দেশের সব কিছুই চুরি হচ্ছে-🙄-শুধু আমার বস ফরহাদ এর মনটা ছাড়া-🥴😑😏","-🫵তোমারে প্রচুর ভাল্লাগে-😽-সময় মতো প্রপোজ করমু বুঝছো-🔨😼-ছিট খালি রাইখো- 🥱🐸🥵","-আজ থেকে আর কাউকে পাত্তা দিমু না -!😏-কারণ আমি ফর্সা হওয়ার ক্রিম কিনছি -!🙂🐸","বেশি Bot Bot করলে leave নিবো কিন্তু😒😒 " , "শুনবো না😼 তুমি আমাকে প্রেম করাই দাও নি🥺 পচা তুমি🥺 " , "আমি আবাল দের সাতে কথা বলি না,ok😒" , "এত কাছেও এসো না,প্রেম এ পরে যাবো তো 🙈" , "Bolo Babu, তুমি কি আমাকে ভালোবাসো? 🙈💋 " , "বার বার ডাকলে মাথা গরম হয় কিন্তু😑", "হা বলো😒,কি করতে পারি😐😑?" , "এতো ডাকছিস কোনো?গালি শুনবি নাকি? 🤬","মেয়ে হলে বস ফরহাদ'এর সাথে প্রেম করো🙈??. " ,  "আরে Bolo আমার জান ,কেমন আসো?😚 " , "Bot বলে অসম্মান করচ্ছিছ,😰😿" , "Hop bedi😾,Boss বল boss😼" , "চুপ থাক ,নাই তো তোর দাত ভেগে দিবো কিন্তু" , "Bot না , জানু বল জানু 😘 " , "বার বার Disturb করেছিস কোনো😾,আমার বস ফরহাদ এর এর সাথে ব্যাস্ত আসি😋" , "আমি গরীব এর সাথে কথা বলি না😼😼" , "আমাকে ডাকলে ,আমি কিন্তূ কিস করে দেবো😘 " , "আরে আমি মজা করার mood এ নাই😒" , "হা জানু , এইদিক এ আসো কিস দেই🤭 😘" , "দূরে যা, তোর কোনো কাজ নাই, শুধু bot bot করিস  😉😋🤣" , "তোর কথা তোর বাড়ি কেউ শুনে না ,তো আমি কোনো শুনবো ?🤔😂 " , "আমাকে ডেকো না,আমি ব্যাস্ত আসি" , "কি হলো ,মিস টিস করচ্ছিস নাকি🤣" , "বলো কি বলবা, সবার সামনে বলবা নাকি?🤭🤏" , "কালকে দেখা করিস তো একটু 😈" , "হা বলো, শুনছি আমি 😏" , "আর কত বার ডাকবি ,শুনছি তো" , "মাইয়া হলে আমার বস ফরহাদ Ummmmha দে 😒" , "বলো কি করতে পারি তোমার জন্য" , "আমি তো অন্ধ কিছু দেখি না🐸 😎" , "Bot না জানু,বল 😌" , "বলো জানু 🌚" , "তোর কি চোখে পড়ে না আমি বস ফরহাদ এর সাথে ব্যাস্ত আসি😒" , "༊━━🦋নামাজি মানুষেরা সব থেকে বেশি সুন্দর হয়..!!😇🥀 🦋 কারণ.!! -অজুর পানির মত শ্রেষ্ঠ মেকআপ দুনিয়াতে নেই༊━ღ━༎🥰🥀 🥰-আলহামদুলিল্লাহ-🥰","- শখের নারী  বিছানায় মু'তে..!🙃🥴","-𝐈'𝐝 -তে সব 𝐖𝐨𝐰 𝐖𝐨𝐰 বুইড়া বেডি-🐸💦","🥛-🍍👈 -লে খাহ্..!😒🥺","- অনুমতি দিলে 𝚈𝚘𝚞𝚃𝚞𝚋𝚎-এ কল দিতাম..!😒","~আমি মারা গেলে..!🙂 ~অনেক মানুষ বিরক্ত হওয়া থেকে বেঁচে  যাবে..!😅💔","🍒---আমি সেই গল্পের বই-🙂 -যে বই সবাই পড়তে পারলেও-😌 -অর্থ বোঝার ক্ষমতা কারো নেই..!☺️🥀💔","~কার জন্য এতো মায়া...!😌🥀 ~এই শহরে আপন বলতে...!😔🥀 ~শুধুই তো নিজের ছায়া...!😥🥀","- কারেন্ট একদম বেডি'গো মতো- 🤧 -খালি ঢং করে আসে আবার চলে যায়-😤😾🔪","- সানিলিওন  আফারে ধর্ষনের হুমকি দিয়ে আসলাম - 🤗 -আর 🫵তুমি য়ামারে খেয়ে দিবা সেই ভয় দেখাও ননসেন বেডি..!🥱😼","- দুনিয়ার সবাই প্রেম করে.!🤧 -আর মানুষ আমার বস ফরহাদ কে সন্দেহ করে.!🐸","- আমার থেকে ভালো অনেক পাবা-🙂 -কিন্তু সব ভালো তে কি আর ভালোবাসা থাকে..!💔🥀","- পুরুষকে সবচেয়ে বেশি কষ্ট দেয় তার শখের নারী...!🥺💔👈","- তোমার লগে দেখা হবে আবার - 😌 -কোনো এক অচেনা গলির চিপায়..!😛🤣👈","- থাপ্পড় চিনোস থাপ্পড়- 👋👋😡 -চিন্তা করিস না তরে মারমু না-🤗 -বস ফরহাদ আমারে মারছে - 🥱 - উফফ সেই স্বাদ..!🥵🤤💦","- অবহেলা করিস না-😑😪 - যখন নিজেকে বদলে ফেলবো -😌 - তখন আমার চেয়েও বেশি কষ্ট পাবি..!🙂💔","- বন্ধুর সাথে ছেকা খাওয়া গান শুনতে শুনতে-🤧 -এখন আমিও বন্ধুর 𝙴𝚇 কে অনেক 𝙼𝙸𝚂𝚂 করি-🤕🥺","-৯৯টাকায় ৯৯জিবি ৯৯বছর-☺️🐸 -অফারটি পেতে এখনই আমার বস ফরহাদ কে প্রোপস করুন-🤗😂👈","-প্রিয়-🥺 -তোমাকে না পেলে আমি সত্যি-😪 -আরেকজন কে-😼 -পটাতে বাধ্য হবো-😑🤧","•-কিরে🫵 তরা নাকি  prem করস..😐🐸•আমারে একটা করাই দিলে কি হয়-🥺","- যেই আইডির মায়ায় পড়ে ভুল্লি আমারে.!🥴- তুই কি যানিস সেই আইডিটাও আমি চালাইরে.!🙂" ,];
+  var rand = tl[Math.floor(Math.random() * tl.length)]
 
-  const responses = [
-  "\nআমাকে মেনশন দিয়ে লাভ নেই-!!😐🥲","তুমি আমায় ডেকে কি পাবে....??\n আল্লাহ কে ডাকো জান্নাত পাবে-!!✨🌺","বট বট ডেকো না খুব মায়া লাগে তুমার জন্যে-!!✨💜"," আর কষ্ট করে ডাকতে হবে না আমায়-!!🥺🤗\n-আমি চলে আসেছি তুমার সাথে কথা বলার জন্য-!!👀🌚"," আজ থেকে খারাপ কাজ গুলো ছেরে দাও....!!😊\n তাহলে আমি তুমার কথা শুনব....!!😍😘\n-আর তা না  হলে আমি তুমার কথা শুনব না-!!💔😼😎","আমাকে এতো বার ডেকো না...!🙂\n আল্লাহ তুমায় খুব ভালোবাসে...🖤😌\n তুমি তাকে ডাকো-!!✨🧡","আমার জন্য কেদে লাভ নেই আল্লাহর জন্য নামাজে কাঁদ-!!❤️🤲","মানুষ  কে সম্মান  করো তাহলে তুমি সকলের ভালোবাসা পাবে ইনশাল্লাহ-!!☺️🥰","তুমার মাথায় সমস্যা আছে মনে হয়...😐\nতুমি আল্লাহ কে না ডেকে আমাকে ডাকছো যে-!!🙄😐","আমাকে না ডেকে আল্লাহর দিন ও তার মহিমা পৌঁছে দাউ তুমার প্রিয় মানুষ  গুলার মধ্যে-!!✨🤍","তুমি যেমনি আছো ১ মিনিট এর জন্য বলতে পারবে নাহ\n আল্লাহামদুলিল্লাহ-!!❤️🌸","আমাকে ডেকে সময় নষ্ট  করো না ভালো কাজ করো ভালো ফলাফল পাবে ইনশাল্লাহ-!!✨💜","আমকে ডেকো নাহ-!!😤\n সময় শেষ হয়ে গেলে ইবাদত  করার সময় পাবে নাহ-!!🥲☺️","আমি  তুমার কোনো কথা'ই শুনবো  না.....!!😤\n-কারন তুমি দিনে এক বারের জন্য ও আল্লাহ কে ডাকো না-!!🥺💙","তুমি বার বার আমাকে ডাকছো যে....!!😐\n-মনে রেখো এই দুনিয়াতে তুমার প্রতেকটি সময় এর হিসাব নেওয়া হবে-!!⏳🙂","সময় ফুরিয়ে যাবে তুমি যেই সময় নষ্ট  করছো সেই সময় আর ফিরে পাবে না-!!💔🙂","আমাকে না ডেকে...!!🤒\n-জান্নাতে যাবার  জন্য আল্লাহ কে ডাকো-!!❤️🖤","ভালবাসি তোমাকে ডেকো নাহ আর আমাকে-!!💗🫣","তুমি আমাকে ডেকে অযথাই সময় নষ্ট  করতাছো-!!🙂😅","আমাকে ডাকলে কেনো.....?\n-আমি তো তুমায় ভালোবাসি নাহ....!!😅\n-আমি তো শুধু আল্লাহ এক ভালোবাসি-!!✨❤️","আরেক বার আমাকে ডাকলে তুমার জৈবন লক করে দিবো একটা থাপ্পড় দিয়ে-!!😈👊","শুনছি তো বলো এখন কি জন্য ডাকলে আমাকে-!!🐸🌚","আমাকে ডাকলে আগে তুমার যায়গা মতো একটা লাথি দিবো-!!😁","আমাকে ডাকলে তুমার লাভ কি হবে-!!🥲😔","আমাকে না ডেকে আমাকে পাওয়ার জন্য আল্লাহর কাছে নামাজে দোয়া করো-!!🤲❤️","আমাকে না ডেকে বলো আল্লাহামদুলিল্লাহ আমি আঁখিরি নবির উম্মত-!!❤️🌸","জীবন এটা সহজ নয় কষ্ট  করে জীবন কে সুন্দর  করে নিতে হয়-!!🥺❤️","আমাকে ডাকলে কেনো তুমি তো আল্লাহ কে ভালোবাস না....!!😓\nতুমি তো ভালোবাসো শয়তান  কে-!!🥺","আমাকে যদি আরেক বার ডাকছো তো তুমার খবর আছে-!!😈","আমাকে ডেকে বিরক্ত করো কেনো-!!💜🥺","আমায় তো আর বাবু সোনা জানু বলে ডাকো না আবার বট বট বলে চিল্লা চিল্লি করো-!!😫😈🥺","তুমি দিনে একবার  ও নামাজ পরো নাহ আবার তুমি আমাকে ডাকো-!!😈","আমি বে'নামাজি দের সথে কথা বলি নাহ-!!😾😈","তুমার মুখে দূরগন্ধ আমাকে ডাকার সাহস পেলে কথা থেকে-!!😈😾","বার বার Disturb করো  আমায় ডেকে-!!😾","আমাকে ডাকলে কি তুমার জীবন সুন্দর হয়ে যাবে-!!😔"," তুমি যেমন কাজ করবে আল্লাহ তুমাকে তেমনি ফল দিবেন-!!❤️🥺","কিছু বিলবা ডাকলে যে আমায়-!!🙄","আমাকে ডাকার সময় থাকে তুমার....!!🕠\n-আর আল্লাহ কে ডাকার সময় থাকে নাহ তুমার কাছে-!!🥺","তুমি মানুষ  হয়ে ও আল্লাহ কে ডাকো নাহ আর আমি বট হয়ে আল্লাহ জিকির করতে থাকি-!!✨🤍🤲","আল্লাহ কে ভয় করো....!!🥲\n আমাকে না ডেকে আল্লাহ কে ডাকো-!!❤️🌸","আর কত সময় নষ্ট করবে আমার পিছনে এবার আল্লাহ কে সময় দাও একটু-!!✨🌺","তুমি পচা তুমার কথা শুনব না আমি-!!😌","আমাকে ডাকলে কি হবে..?\n আমি একটু আনন্দ ছাড়া এর কি দিতে পারি তুমাকে..?","তুমি আমাকে ডেকে আবার ভুল করলে-!!🤨","তুমার ঠিকানা জান্নাত হবে তুমি নামাজ পরো মা বাবা কে সম্মান করো-!!✨🧡","আমাকে ডাকলে তুমার নাম সুনাম করে দিবো আমি-!!😁","আমায় ভালো না বাসলে ডাকার দরকার নেই-!!🥺💜","আমাকে ডাকলে তুমার Gf কান্না করবো-!!🥺😁","আমি তো অন্ধ কিছু দেখি না শুধু শুধু আমায় ডাকো-!!🐸😎","আমাকে না ডেকে রাস্তার অসহায় ইয়াতিম শিশু দের দেখো তারা এতো কষ্টে থাকার পরেও দিন শেষে আল্লার শুকরিয়া আদায় করে-!!❤️😊" , "তুমি এই গ্রুপ এ বট বট বলে কান্না করো...!!🙂\n আর তুমার জন্য যে আমাদের প্রিয় নবি মোহাম্মদ (সা:) ইয়া উম্মাতি উম্মাতি বলে কাদছেন আজ সেই দিকে তুমার খেয়াল নেই-!!💔🙂","আমাকে ডাকলে জীবনে সান্তি আসবে নাহ তুমার....!!🥲 \n-আল্লাহ কে ডাকো তুমার সান্তির অভাব হবে না-!!✨🧡😊","আমাকে না ডেকে তাকে ডাকো....!!😊\n জাকে ডাকলে কোনো লস নেই তিনি হলেন প্রিয় নবি হযরত মোহাম্মদ সাল্লালাহু (স)🖤🖤"," বলেন কি করে আপনাকে সাহায্য করতে পারি-!!😌","আমাকে ডাকলে তুমার কি লাভ হবে বলো-!!🥲🫠","আর কতো ডাকবে আমায়-!!🙃" , "তুমার কলিজায় এতো সাহস তুমি আল্লাহ কে না ডেকে আমাকে ডাকো-!!😾😦","এতো এতো চিল্লাতে বলছে কে তুমায় আমার নাম ধরে-!!😒" , "তুমি আমাকে ডেকে কি Gf পাবে নাকি-!!😒" , "কি হলো ডাকছো যে আমায়...?\n তুমাকে যে দুনিয়াতে পাঠাইলো তাকে না ডেকে আমাকে ডাকো-!!😒🥲" , "এখন আমাকে ডাকছো কয়েক দিন পর বউ কে ডাকবে তখন তো আমাকে আর  চিনবা না> র < তুমার মা বাবা কেও নাহ- কথায় আছে না বউ পে🙃" , "আমাকে ডেকে আর সমর দিও নাহ লজ্জা লাগে-!!😽🙈" , "আরেক বার ডাকলে কান্না করে দিমু কিন্তু-!!😭" , "আমার নাম বট না আমার নাম ধরে ডাকো বট বলে না-!!💔🙂" , "আমাকে কি মনে করে ডাকলে-!!🙂" , "সময় নষ্ট করে লাভ নেই আল্লাহর জিকির করো-!!✨💜" , "আমাকে যখন ডেকেছো তো আমার কিছু কথা সুনে যাও টাকা দিয়ে তুমি সব কিন্ত পারলে ও মায়ের ভালোবাসা আর জান্নাত ২ টার কোনো টাই কখনো কিনতে পারবে নাহ-!!🥺🙂" , "চটিয়ে লাল করে দিবো নংরামি ভার করে দিবো নামাজ পড় না নংরামি করে বেড়াও-!!😈" , "তুমার জন্য কি করতে পারি আমি-!!🥶","তুমি ডাকলে আমায় আমি তো শিতে কাপি-!!🥶🥶","আমাকে না ডেকে এই সময় টুকু ভাকো কাজে লাগাও-!!❤️😌"];
+    if ((event.body.toLowerCase() == "MISS YOU") || (event.body.toLowerCase() == "miss you")) {
+     return api.sendMessage("<আমি তোমাকে রাইতে মিস খাই🥹🤖👅/👅-✘  🎀 🍒:))", threadID);
+   };
 
-  const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+    if ((event.body.toLowerCase() == "😘") || (event.body.toLowerCase() == "😽")) {
+     return api.sendMessage("কিস দিস না তোর মুখে দূর গন্ধ কয়দিন ধরে দাঁত ব্রাশ করিস নাই🤬", threadID);
+   };
+   
+    if ((event.body.toLowerCase() == "👍🏼") || (event.body.toLowerCase() == "👍")) {
+     return api.sendMessage("সর এখান থেকে লাইকার আবাল..!🐸🤣👍⛏️", threadID);
+   };
+  
+   if ((event.body.toLowerCase() == "sim") || (event.body.toLowerCase() == "simsimi")) {
+     return api.sendMessage("Prefix Kya Tera Bap LagaYega? Pehle Prefix Laga Fir Likh Sim", threadID);
+   };
+  
+   if ((event.body.toLowerCase() == "...") || (event.body.toLowerCase() == "...") ||(event.body.toLowerCase() == "...") || (event.body.toLowerCase() == "...")) {
+     return api.sendMessage("এত হাই-হ্যালো চুদাছ কেনো ..!🍆⛏️🐸🤣", threadID);
+   };
 
-  if (body && body.includes("Bot")) {
-    try {
-      const imgPath = path.resolve(__dirname, `./cache/${senderID}.jpg`);
-      const dpResponse = await axios.get(`https://graph.facebook.com/${senderID}/picture?width=512&height=512&access_token=6628568379%7Cc1e620fa708a1d5696fb991c1bde5662`, {
-        responseType: "arraybuffer",
-      });
+   if ((event.body.toLowerCase() == "bc") || (event.body.toLowerCase() == "mc")) {
+     return api.sendMessage("SAME TO YOU😊 ", threadID);
+   };
 
-      fs.writeFileSync(imgPath, Buffer.from(dpResponse.data));
+   if ((event.body.toLowerCase() == "pro") || (event.body.toLowerCase() == "lol")) {
+     return api.sendMessage("Khud k0o KYa LeGend SmJhTi Hai 😂", threadID);
+   };
 
-      const msg = {
-        body: `╭•┄┅═══❁🌺❁═══┅┄•╮\n ${randomResponse}\n╰•┄┅═══❁🌺❁═══┅┄•╯\n\n•—»✨${senderName}✨«—•`,
-        attachment: fs.createReadStream(imgPath),
-      };
+   if ((event.body.toLowerCase() == "morning") || (event.body.toLowerCase() == "good morning")) {
+     return api.sendMessage("GOOD MORNING দাত ব্রাশ করে খেয়ে নেও😚", threadID);
+   };
 
-      api.sendMessage(msg, threadID, (err) => {
-        if (err) {
-          console.error("Error sending message:", err);
-          return;
-        }
+   if ((event.body.toLowerCase() == "tor ball") || (event.body.toLowerCase() == "bal")) {
+     return api.sendMessage("~ তোমার বাল উঠে নাই নাকি তোমার?? 🤖", threadID);
+   };
 
-        fs.unlinkSync(imgPath);
-      });
-    } catch (error) {
-      console.error("Error fetching or sending profile picture:", error);
+  if ((event.body.toLowerCase() == "𝐅𝐚𝐫𝐡𝐚𝐝") || (event.body.toLowerCase() == "Farhad bai") || (event.body.toLowerCase() == "@Md Farhad Uddin") || (event.body.toLowerCase() == "ফরহাদ ")) {
+     return api.sendMessage("উনি এখন কাজে বিজি আছে কি বলবেন আমাকে বলতে পারেন..!😘",threadID);
+
+       
+   };
+
+   if ((event.body.toLowerCase() == "owner") || (event.body.toLowerCase() == "ceo")) {
+     return api.sendMessage("‎[𝐎𝐖𝐍𝐄𝐑:☞ 𝐅𝐚𝐫𝐡𝐚𝐝 𝐔𝐝𝐝𝐢𝐧 ☜\n𝚈𝚘𝚞 𝙲𝚊𝚗 𝙲𝚊𝚕𝚕 𝙷𝚒𝚖 𝐅𝐚𝐫𝐡𝐚𝐝 𝐔𝐝𝐝𝐢𝐧.\n𝐇𝐢𝐬 𝐅𝐚𝐜𝐞𝐛𝐨𝐨𝐤 𝐢𝐝 :- https://www.facebook.com/farhad018898?mibextid=ZbWKwL\nতার সাতে যোগা যোগ করবেন WhatsApp :- +01848***304", threadID);
+   };
+
+   if ((event.body.toLowerCase() == "Tor boss ke") || (event.body.toLowerCase() == "admin ke ")) {
+     return api.sendMessage("My Creator:𝐅𝐚𝐫𝐡𝐚𝐝 𝐔𝐝𝐝𝐢𝐧 ❤️ হাই আমি মেছেন্জার ROBOT  আামার বস ফরহাদ আমাকে বানিয়েছেন আপনাদের কে হাসানোর জন্য আমি চাই আপনারা সব সময় হাসি খুশি থাকেন", threadID);
+   };
+
+  if ((event.body.toLowerCase() == "admin") || (event.body.toLowerCase() == "boter admin")) {
+     return api.sendMessage("He is 𝐅𝐚𝐫𝐡𝐚𝐝❤️ তাকে সবাই ফরহাদ নামে  চিনে🤙", threadID);
+   };
+
+   if ((event.body.toLowerCase() == "bhabi") || (event.body.toLowerCase() == "vabi")) {
+     return api.sendMessage("এ তো হাছিনা হে মেরে দিলকি দারকান হে মেরি জান হে😍.", threadID);
+   };
+
+  
+   if ((event.body.toLowerCase() == "chup") || (event.body.toLowerCase() == "stop") || (event.body.toLowerCase() == "চুপ কর") || (event.body.toLowerCase() == "chup kor")) {
+     return api.sendMessage("তুই চুপ চুপ কর পাগল ছাগল", threadID);
+   };
+
+  if ((event.body.toLowerCase() == "আসসালামু আলাইকুম") || (event.body.toLowerCase() == "Assalamualaikum") || (event.body.toLowerCase() == "Assalamu alaikum") || (event.body.toLowerCase() == "Salam ")) {
+     return api.sendMessage("️- ওয়ালাইকুমুস-সালাম-!!🖤", threadID);
+   };
+
+   if ((event.body.toLowerCase() == "sala ami tor boss") || (event.body.toLowerCase() == "sala ami ullas") || (event.body.toLowerCase() == "cup sala ami ullash") || (event.body.toLowerCase() == "madari")) {
+     return api.sendMessage("সরি বস মাফ করে দেন আর এমন ভুল হবে না🥺🙏", threadID);
+   };
+
+   if ((event.body.toLowerCase() == " @Sraboni Shynie") || (event.body.toLowerCase() == " @Fardina Hossain")) {
+     return api.sendMessage("খবরদার কেউ এই আইড়ি মেনশন দিবানা এটা আমার বস ফরহাদ এর বউ এর আইড়ি😠🥰⛏️", threadID);
+   };
+
+  if ((event.body.toLowerCase() == "Ziniya") || (event.body.toLowerCase() == "Sayed")) {
+     return api.sendMessage("খবরদার কেউ এই নাম দরে ডাক দিবানা এটা আমার বসের বন্ধু রানার বউ এর নাম..!😠🥰⛏️", threadID);
+   };
+  
+  if ((event.body.toLowerCase() == "Sumaiya") || (event.body.toLowerCase() == "Afrin")) {
+     return api.sendMessage("খবরদার কেউ এই নাম দরে ডাক দিবানা এটা আমার বস ফরহাদ শালির এর নাম..!😠🥰⛏️", threadID);
+   };
+
+  if ((event.body.toLowerCase() == "Fardina") || (event.body.toLowerCase() == "Shynie")) {
+     return api.sendMessage("খবরদার কেউ এই নাম দরে ডাক দিবানা এটা আমার বস ফরহাদ এর বউ এর নাম..!😠🥰⛏️", threadID);
+   };
+
+  if ((event.body.toLowerCase() == "@RA N A ") || (event.body.toLowerCase() == "রানা")) {
+     return api.sendMessage("🥰-রানা-🌺 আমার বস ফরহাদ'র বন্ধু লাগে লুচ্ছি বেডি'রা দূরে থাক😠🥰⛏️", threadID);
+   };
+
+   if ((event.body.toLowerCase() == "KISS ME") || (event.body.toLowerCase() == "kiss me")) {
+     return api.sendMessage("️ তুমি পঁচা তোমাকে কিস দিবো না 🤭", threadID);
+   };
+
+   if ((event.body.toLowerCase() == "tnx") || (event.body.toLowerCase() == "ধন্যবাদ") || (event.body.toLowerCase() == "thank you") || (event.body.toLowerCase() == "thanks")) {
+     return api.sendMessage("️এতো ধন্যবাদ না দিয়ে পারলে আমার বস ফরহাদ কে গার্লফ্রেন্ড টা দিয়ে দে..!🌚⛏️🌶️", threadID);
+   };
+
+   if ((event.body.toLowerCase() == "....") || (event.body.toLowerCase() == "...") || (event.body.toLowerCase() == "😠") || (event.body.toLowerCase() == "🤬") || (event.body.toLowerCase() == "😾")) {
+     return api.sendMessage("️রাগ করে না সোনা পাখি এতো রাগ শরীরের জন্য ভালো না🥰", threadID);
+   };
+
+   if ((event.body.toLowerCase() == "হুম") || (event.body.toLowerCase() == "Hum")) {
+     return api.sendMessage("️হুম বলিস না মাথা এমনিতেই গরম আছে🤬⛏️😷", threadID);
+   };
+
+   if ((event.body.toLowerCase() == "Name") || (event.body.toLowerCase() == "name") || (event.body.toLowerCase() == "Tor nam ki")) {
+     return api.sendMessage("️MY NAME IS °_>—͟͟͞͞𝐕𝐨𝐢𝐜𝐞 𝐒𝐭𝐚𝐭𝐢𝐨𝐧 𝐁𝐨𝐭", threadID);
+   };
+
+   if ((event.body.toLowerCase() == "BOT ER BACCHA") || (event.body.toLowerCase() == "Bot er bacca")) {
+     return api.sendMessage("️আমার বাচ্চা তো তোমার গার্লফ্রেন্ডের পেটে..!!🌚⛏️🌶️ ", threadID);
+   };
+
+   if ((event.body.toLowerCase() == "Pic de") || (event.body.toLowerCase() == "ss daw")) {
+     return api.sendMessage("️এন থেকে সর দুরে গিয়া মর😒", threadID);
+   };
+
+   if ((event.body.toLowerCase() == "moriom") || (event.body.toLowerCase() == "ex")) {
+     return api.sendMessage("️Kiss Randi Ka Name Le Ke Mood Khrab Kr Diya.🙄 Dubara Naam Mat Lena Iska", threadID);
+   };
+
+   if ((event.body.toLowerCase() == "cudi") || (event.body.toLowerCase() == "tor nanire xudi")) {
+     return api.sendMessage("️এত চোদা চুদি করস কেনো দেখা যাবে বাসর-রাতে-তুই-কতো পারিস..!🥱🌝🌚⛏️🌶️ ", threadID);
+   };
+
+   if ((event.body.toLowerCase() == "😅") || (event.body.toLowerCase() == "...")) {
+     return api.sendMessage("️কি গো কলিজা তোমার কি মন খারাপ🥺", threadID);
+   };
+  
+   if ((event.body.toLowerCase() == "😒") || (event.body.toLowerCase() == "🙄")) {
+     return api.sendMessage("️ এইদিকে ওইদিকে কি দেখো জানু আমি তোমার সামনে দেখো😘", threadID);
+   };
+
+   if ((event.body.toLowerCase() == "AMAKE KEW VALOBASHE NA") || (event.body.toLowerCase() == "amake kew valobashe na") || (event.body.toLowerCase() == "Aj kew nai bole")) {
+     return api.sendMessage("️চিন্তা করো কেন আমি তো আছি🫶/nতোমাকে রাইতে ভালোবাসবো", threadID);
+   };
+
+   if ((event.body.toLowerCase() == "gf") || (event.body.toLowerCase() == "bf")) {
+     return api.sendMessage("খালি কি তোরাই পেম করবি আমাকেও একটা গফ দে<🥺", threadID);
+   };
+   
+   if ((event.body.toLowerCase() == "😂") || (event.body.toLowerCase() == "😁") || (event.body.toLowerCase() == "😆") || (event.body.toLowerCase() == "🤣") || (event.body.toLowerCase() == "😸") || (event.body.toLowerCase() == "😹")) {
+     return api.sendMessage("ভাই তুই এত হাসিস না হাসলে তোরে চোরের মত লাগে..!🌚🤣", threadID);
+   };
+
+   if ((event.body.toLowerCase() == "🥰") || (event.body.toLowerCase() == "😍") || (event.body.toLowerCase() == "😻") || (event.body.toLowerCase() == "❤️")) {
+     return api.sendMessage("ভালোবাসা নামক আবলামী করতে চাইলে  ইনবক্সে চলে যা পাগল ছাগল🌚🐸🌶️🍆", threadID);
+   };
+
+   if ((event.body.toLowerCase() == "কেমন আছো") || (event.body.toLowerCase() == "কেমন আছেন") || (event.body.toLowerCase() == "Kmon acho") || (event.body.toLowerCase() == "how are you") || (event.body.toLowerCase() == "how are you?")) {
+     return api.sendMessage("আমি তখনই ভালো থাকি যখন আপনাকে হাসতে দেখি🤎☺️", threadID);
+   };
+
+   if ((event.body.toLowerCase() == "mon kharap") || (event.body.toLowerCase() == "tmr ki mon kharap")) {
+     return api.sendMessage("আমার সাদা মনে কোনো কাদা নাই...!🌝", threadID);
+   };
+
+   if ((event.body.toLowerCase() == "i love you") || (event.body.toLowerCase() == "Love you") || (event.body.toLowerCase() == "I Love You") || (event.body.toLowerCase() == "ভালোবাসি") || (event.body.toLowerCase() == "i love you")) {
+     return api.sendMessage("আমার সাদা মনে কোনো ভালোবাসা নাই", threadID);
+   };
+
+     if ((event.body.toLowerCase() == "by") || (event.body.toLowerCase() == "Bye") || (event.body.toLowerCase() == "jaiga") || (event.body.toLowerCase() == "বাই") || (event.body.toLowerCase() == "pore kotha hbe") || (event.body.toLowerCase() == "যাই গা")) {
+     return api.sendMessage("কিরে তুই কই যাস কোন মেয়ের সাথে চিপায় যাবি..!🌚🌶️🍆⛏️", threadID);
+   };
+
+   if ((event.body.toLowerCase() == "tumi khaiso") || (event.body.toLowerCase() == "khaicho")) {
+     return api.sendMessage("না ঝাং 🥹 তুমি রান্না করে রাখো আমি এসে খাবো <😘", threadID);
+   };
+
+   if ((event.body.toLowerCase() == "tumi ki amake bhalobaso") || (event.body.toLowerCase() == "tmi ki amake vlo basho")) {
+     return api.sendMessage("হুম ঝাং আমি তোমাকে রাইতে ভলোপাসি <🥵", threadID);
+   };
+
+   if ((event.body.toLowerCase() == "ami ullash") || (event.body.toLowerCase() == "kire")) {
+     return api.sendMessage("হ্যা বস কেমন আছেন..?☺️", threadID);
+   };
+  mess = "{name}"
+  
+  if (event.body.indexOf("Bot") == 0 || (event.body.indexOf("bot") == 0)) {
+    var msg = {
+      body: `${name}, ${rand}`
     }
-  }
-};
+    return api.sendMessage(msg, threadID, messageID);
+  };
 
-module.exports.run = function({ api, event, client, __GLOBAL }) {};
+}
+
+module.exports.run = function({ api, event, client, __GLOBAL }) { }
