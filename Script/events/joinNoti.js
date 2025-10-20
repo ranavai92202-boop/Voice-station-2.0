@@ -54,8 +54,8 @@ module.exports.run = async function({ api, event }) {
 ➤𝐌𝐞𝐬𝐬𝐞𝐧𝐠𝐞𝐫: https://m.me/100041336504284
 ➤𝐖𝐡𝐚𝐭𝐬𝐀𝐩𝐩: https://wa.me/01848019304
 
-❖⋆═══════════════════════⋆❖
-          𝐁𝐨𝐭 𝐎𝐰𝐧𝐞𝐫 ➢ 𝐅𝐚𝐫𝐡𝐚𝐝 𝐔𝐝𝐝𝐢𝐧`;
+❖⋆══════════════════⋆❖
+ 𝐁𝐨𝐭 𝐎𝐰𝐧𝐞𝐫 ➢ 𝐅𝐚𝐫𝐡𝐚𝐝 𝐔𝐝𝐝𝐢𝐧`;
 
       if (selected) {
         api.sendMessage({ body: messageBody, attachment: selected }, threadID);
