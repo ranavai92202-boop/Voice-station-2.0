@@ -25,7 +25,7 @@
     "PREFIX": "/",
     "ADMINBOT": [
         "100041336504284",
-        "61557180704764",
+        "61557180704764"
     ],
     "NDH": [
         "100041336504284"
@@ -221,40 +221,3 @@
     "cardinfo": {
         "APIKEY": "tuandz"
     },
-    "help3": {
-        "autoUnsend": true,
-        "delayUnsend": 300
-    },
-    "job": {
-        "cooldownTime": 5000
-    },
-    "fish": {
-        "cooldownTime": 1000000
-    },
-    "sing2": {
-        "YOUTUBE_API": "AIzaSyBPdGN3eMhswfSKWoaomzdlEftf3NjV1gM",
-        "SOUNDCLOUD_API": "M4TSyS6eV0AcMynXkA3qQASGcOFQTWub"
-    },
-    "god": {
-        "enable": true,
-        "logGroupID": "24068781876127034",
-        "adminUID": "100001039692046"
-    },
-    "help2": {
-        "autoUnsend": true,
-        "delayUnsend": 300
-    },
-    "spam": {
-        "autoUnsend": "",
-        "delayUnsend": 2000
-    },
-    "adminNoti": {
-        "autoUnsend": true,
-        "sendNoti": true,
-        "timeToUnsend": 10
-    },
-    "helpall": {
-        "autoUnsend": true,
-        "delayUnsend": 20
-    }
-}
